@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'components/body.dart';
 
-class ChatScreen extends StatefulWidget {
+class ChatsScreen extends StatefulWidget {
   @override
   _ChatsScreenState createState() => _ChatsScreenState();
 }
@@ -36,6 +36,31 @@ class _ChatsScreenState extends State<ChatsScreen> {
           _selectedIndex = value;
         });
       },
+      items: [
+        BottomNavigationBarItem(icon: Icon(Icons.messenger), label: "Chats"),
+        BottomNavigationBarItem(icon: Icon(Icons.people), label: "People"),
+        BottomNavigationBarItem(icon: Icon(Icons.call), label: "Calls"),
+        BottomNavigationBarItem(
+          icon: CircleAvatar(
+            radius: 14,
+            backgroundImage: AssetImage("assets/images/user_2.png"),
+          ),
+          label: "Profile",
+        ),
+      ],
+    );
+  }
+
+  AppBar buildAppBar() {
+    return AppBar(
+      automaticallyImplyLeading: false,
+      title: Text("Chats"),
+      actions: [
+        IconButton(
+          icon: Icon(Icons.search),
+          onPressed: () {},
+        ),
+      ],
     );
   }
 }
